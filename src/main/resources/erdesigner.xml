@@ -1048,7 +1048,7 @@
             <Text lang="de">Anzeigemodus</Text>
             <Text lang="en">Background Color</Text>
         </Entry>
-        <Entry id="DEFAULT">
+        <Entry id="BGDEFAULT">
             <Text lang="de">Anzeigemodus</Text>
             <Text lang="en">Default</Text>
         </Entry>
@@ -1064,9 +1064,9 @@
             <Text lang="de">Anzeigemodus</Text>
             <Text lang="en">Blue</Text>
         </Entry>
-        <Entry id="BLACK">
+        <Entry id="YELLOW">
             <Text lang="de">Anzeigemodus</Text>
-            <Text lang="en">Black</Text>
+            <Text lang="en">Yellow</Text>
         </Entry>
         <Entry id="TABLESPACE">
             <Text lang="de">Tablespace</Text>

@@ -274,6 +274,26 @@ public final class ERDesignerComponent implements ResourceHelperProvider {
         }
     }
 
+    protected boolean setBackgroundDefault() {
+        return true;
+    }
+
+    protected boolean setBackgroundGreen() {
+        return false;
+    }
+
+    protected boolean setBackgroundRed() {
+        return false;
+    }
+
+    protected boolean setBackgroundBlue() {
+        return false;
+    }
+
+    protected boolean setBackgroundYellow() {
+        return false;
+    }
+
     protected void setEditor(GenericModelEditor aEditor) {
 
         JComponent theDetail = aEditor.getDetailComponent();
@@ -622,55 +642,45 @@ public final class ERDesignerComponent implements ResourceHelperProvider {
 
         DefaultMenu theViewBGMenu = new DefaultMenu(this,
                 ERDesignerBundle.BACKGROUDCOLOR);
+        theViewMenu.add(theViewBGMenu);
 
         DefaultAction theViewBGDefaultAction = new DefaultAction(
-                e ->  this, ERDesignerBundle.BGDEFAULT);
+                this, ERDesignerBundle.BGDEFAULT);
         DefaultAction theViewBGGreenAction = new DefaultAction(
-                e ->  this, ERDesignerBundle.GREEN);
+                this, ERDesignerBundle.GREEN);
         DefaultAction theViewBGRedAction = new DefaultAction(
-                e ->  this, ERDesignerBundle.RED);
+                this, ERDesignerBundle.RED);
         DefaultAction theViewBGBlueAction = new DefaultAction(
-                e ->  this, ERDesignerBundle.BLUE);
-        DefaultAction theViewBGBlackAction = new DefaultAction(
-                e ->  this, ERDesignerBundle.BLACK);
+                this, ERDesignerBundle.BLUE);
+        DefaultAction theViewBGYellowAction = new DefaultAction(
+                this, ERDesignerBundle.YELLOW);
 
 
-        viewBGDefaultMenuItem = new DefaultCheckboxMenuItem(
+        DefaultRadioButtonMenuItem viewBGDefaultMenuItem = new DefaultRadioButtonMenuItem(
                 theViewBGDefaultAction);
-        viewBGGreenMenuItem = new DefaultCheckboxMenuItem(
+        DefaultRadioButtonMenuItem viewBGGreenMenuItem = new DefaultRadioButtonMenuItem(
                 theViewBGGreenAction);
-        viewBGRedMenuItem = new DefaultCheckboxMenuItem(
+        DefaultRadioButtonMenuItem viewBGRedMenuItem = new DefaultRadioButtonMenuItem(
                 theViewBGRedAction);
-        viewBGBlueMenuItem = new DefaultCheckboxMenuItem(
+        DefaultRadioButtonMenuItem viewBGBlueMenuItem = new DefaultRadioButtonMenuItem(
                 theViewBGBlueAction);
-        viewBGBlackMenuItem = new DefaultCheckboxMenuItem(
-                theViewBGBlackAction);
+        DefaultRadioButtonMenuItem viewBGYellowMenuItem = new DefaultRadioButtonMenuItem(
+                theViewBGYellowAction);
 
+        ButtonGroup theDisplayBGGroup = new ButtonGroup();
+        theDisplayBGGroup.add(viewBGDefaultMenuItem);
+        theDisplayBGGroup.add(viewBGGreenMenuItem);
+        theDisplayBGGroup.add(viewBGRedMenuItem);
+        theDisplayBGGroup.add(viewBGBlueMenuItem);
+        theDisplayBGGroup.add(viewBGYellowMenuItem);
 
-        // theViewBGMenu.add(viewBGDefaultMenuItem);
-        // theViewBGMenu.add(viewBGGreenMenuItem);
-        // theViewBGMenu.add(viewBGRedMenuItem);
-        // theViewBGMenu.add(viewBGBlueMenuItem);
-        // theViewBGMenu.add(viewBGBlackMenuItem);
+        theViewBGMenu.add(viewBGDefaultMenuItem);
+        theViewBGMenu.add(viewBGGreenMenuItem);
+        theViewBGMenu.add(viewBGRedMenuItem);
+        theViewBGMenu.add(viewBGBlueMenuItem);
+        theViewBGMenu.add(viewBGYellowMenuItem);
         
-        theViewBGMenu.add(ERDesignerBundle.BGDEFAULT);
-        theViewBGMenu.add(ERDesignerBundle.GREEN);
-        theViewBGMenu.add(ERDesignerBundle.RED);
-        theViewBGMenu.add(ERDesignerBundle.BLUE);
-        theViewBGMenu.add(ERDesignerBundle.BLACK);            
-
-        ButtonGroup theDisplayModeGroup = new ButtonGroup();
-        theDisplayModeGroup.add(ERDesignerBundle.BGDEFAULT);
-        theDisplayModeGroup.add(ERDesignerBundle.GREEN);
-        theDisplayModeGroup.add(ERDesignerBundle.RED);
-        theDisplayModeGroup.add(ERDesignerBundle.BLUE);
-        theDisplayModeGroup.add(ERDesignerBundle.BLACK);
-
-        ERDesignerBundle.BGDEFAULT.setSelected(true);
-
-        theViewMenu.add(theViewBGMenu);
         UIInitializer.getInstance().initialize(theViewBGMenu);
-
 
         displayCommentsAction = new DefaultAction(
                 e -> {
