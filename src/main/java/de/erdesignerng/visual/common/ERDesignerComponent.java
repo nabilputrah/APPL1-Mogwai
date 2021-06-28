@@ -588,6 +588,7 @@ public final class ERDesignerComponent implements ResourceHelperProvider {
         ERDesignerToolbarEntry theViewMenu = new ERDesignerToolbarEntry(
                 ERDesignerBundle.VIEW);
 
+
         DefaultMenu theViewModeMenu = new DefaultMenu(this,
                 ERDesignerBundle.VIEWMODE);
 
@@ -597,7 +598,6 @@ public final class ERDesignerComponent implements ResourceHelperProvider {
                 e -> setEditor2DInteractive(), this, ERDesignerBundle.VIEWMODE2DINTERACTIVE);
         DefaultAction theViewMode3DInteractiveAction = new DefaultAction(
                 e -> setEditor3DInteractive(), this, ERDesignerBundle.VIEWMODE3DINTERACTIVE);
-
 
         viewMode2DDiagramMenuItem = new DefaultCheckboxMenuItem(
                 theViewMode2DDiagramAction);
@@ -619,6 +619,58 @@ public final class ERDesignerComponent implements ResourceHelperProvider {
 
         theViewMenu.add(theViewModeMenu);
         UIInitializer.getInstance().initialize(theViewModeMenu);
+
+        DefaultMenu theViewBGMenu = new DefaultMenu(this,
+                ERDesignerBundle.BACKGROUDCOLOR);
+
+        DefaultAction theViewBGDefaultAction = new DefaultAction(
+                e ->  this, ERDesignerBundle.BGDEFAULT);
+        DefaultAction theViewBGGreenAction = new DefaultAction(
+                e ->  this, ERDesignerBundle.GREEN);
+        DefaultAction theViewBGRedAction = new DefaultAction(
+                e ->  this, ERDesignerBundle.RED);
+        DefaultAction theViewBGBlueAction = new DefaultAction(
+                e ->  this, ERDesignerBundle.BLUE);
+        DefaultAction theViewBGBlackAction = new DefaultAction(
+                e ->  this, ERDesignerBundle.BLACK);
+
+
+        viewBGDefaultMenuItem = new DefaultCheckboxMenuItem(
+                theViewBGDefaultAction);
+        viewBGGreenMenuItem = new DefaultCheckboxMenuItem(
+                theViewBGGreenAction);
+        viewBGRedMenuItem = new DefaultCheckboxMenuItem(
+                theViewBGRedAction);
+        viewBGBlueMenuItem = new DefaultCheckboxMenuItem(
+                theViewBGBlueAction);
+        viewBGBlackMenuItem = new DefaultCheckboxMenuItem(
+                theViewBGBlackAction);
+
+
+        // theViewBGMenu.add(viewBGDefaultMenuItem);
+        // theViewBGMenu.add(viewBGGreenMenuItem);
+        // theViewBGMenu.add(viewBGRedMenuItem);
+        // theViewBGMenu.add(viewBGBlueMenuItem);
+        // theViewBGMenu.add(viewBGBlackMenuItem);
+        
+        theViewBGMenu.add(ERDesignerBundle.BGDEFAULT);
+        theViewBGMenu.add(ERDesignerBundle.GREEN);
+        theViewBGMenu.add(ERDesignerBundle.RED);
+        theViewBGMenu.add(ERDesignerBundle.BLUE);
+        theViewBGMenu.add(ERDesignerBundle.BLACK);            
+
+        ButtonGroup theDisplayModeGroup = new ButtonGroup();
+        theDisplayModeGroup.add(ERDesignerBundle.BGDEFAULT);
+        theDisplayModeGroup.add(ERDesignerBundle.GREEN);
+        theDisplayModeGroup.add(ERDesignerBundle.RED);
+        theDisplayModeGroup.add(ERDesignerBundle.BLUE);
+        theDisplayModeGroup.add(ERDesignerBundle.BLACK);
+
+        ERDesignerBundle.BGDEFAULT.setSelected(true);
+
+        theViewMenu.add(theViewBGMenu);
+        UIInitializer.getInstance().initialize(theViewBGMenu);
+
 
         displayCommentsAction = new DefaultAction(
                 e -> {

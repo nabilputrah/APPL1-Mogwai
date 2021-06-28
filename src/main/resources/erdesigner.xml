@@ -1044,6 +1044,30 @@
             <Text lang="de">3D Interaktiv Modus</Text>
             <Text lang="en">3D interactive mode</Text>
         </Entry>
+        <Entry id="BACKGROUDCOLOR">
+            <Text lang="de">Anzeigemodus</Text>
+            <Text lang="en">Background Color</Text>
+        </Entry>
+        <Entry id="DEFAULT">
+            <Text lang="de">Anzeigemodus</Text>
+            <Text lang="en">Default</Text>
+        </Entry>
+        <Entry id="GREEN">
+            <Text lang="de">Anzeigemodus</Text>
+            <Text lang="en">Green</Text>
+        </Entry>
+        <Entry id="RED">
+            <Text lang="de">Anzeigemodus</Text>
+            <Text lang="en">Red</Text>
+        </Entry>
+        <Entry id="BLUE">
+            <Text lang="de">Anzeigemodus</Text>
+            <Text lang="en">Blue</Text>
+        </Entry>
+        <Entry id="BLACK">
+            <Text lang="de">Anzeigemodus</Text>
+            <Text lang="en">Black</Text>
+        </Entry>
         <Entry id="TABLESPACE">
             <Text lang="de">Tablespace</Text>
             <Text lang="en">Tablespace</Text>

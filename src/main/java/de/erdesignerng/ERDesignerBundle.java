@@ -795,6 +795,24 @@ public interface ERDesignerBundle {
 	/** \u0033\u0044\u0020\u0069\u006e\u0074\u0065\u0072\u0061\u0063\u0074\u0069\u0076\u0065\u0020\u006d\u006f\u0064\u0065. */
 	String VIEWMODE3DINTERACTIVE = "VIEWMODE3DINTERACTIVE";
 
+	/** \u0042\u0061\u0063\u006b\u0067\u0072\u006f\u0075\u006e\u0064\u0020\u0043\u006f\u006c\u006f\u0072. */
+	String BACKGROUDCOLOR = "BACKGROUDCOLOR";
+
+	/** \u0044\u0065\u0066\u0061\u0075\u006c\u0074. */
+	String DEFAULT = "DEFAULT";
+
+	/** \u0047\u0072\u0065\u0065\u006e. */
+	String GREEN = "GREEN";
+
+	/** \u0052\u0065\u0064. */
+	String RED = "RED";
+
+	/** \u0042\u006c\u0075\u0065. */
+	String BLUE = "BLUE";
+
+	/** \u0042\u006c\u0061\u0063\u006b. */
+	String BLACK = "BLACK";
+
 	/** \u0054\u0061\u0062\u006c\u0065\u0073\u0070\u0061\u0063\u0065. */
 	String TABLESPACE = "TABLESPACE";
 
