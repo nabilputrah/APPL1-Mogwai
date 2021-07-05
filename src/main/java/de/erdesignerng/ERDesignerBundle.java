@@ -114,6 +114,15 @@ public interface ERDesignerBundle {
 	/** . */
 	String VIEWTOOL = "VIEWTOOL";
 
+	/** . */
+	String DIAGRAM2D = "DIAGRAM2D";
+
+	/** . */
+	String INTERACTIVE2D = "INTERACTIVE2D";
+
+	/** . */
+	String INTERACTIVE3D = "INTERACTIVE3D";
+
 	/** \u005a\u006f\u006f\u006d. */
 	String ZOOM = "ZOOM";
 

@@ -69,6 +69,12 @@ public final class ERDesignerComponent implements ResourceHelperProvider {
 
     private volatile Model model;
 
+    private JToggleButton Diagram2DButton;
+
+    private JToggleButton Interactive2DButton;
+
+    private JToggleButton Interactive3DButton;
+
     private JToggleButton handButton;
 
     private JToggleButton commentButton;
@@ -110,6 +116,12 @@ public final class ERDesignerComponent implements ResourceHelperProvider {
     private static final ZoomInfo ZOOMSCALE_HUNDREDPERCENT = new ZoomInfo(
             "100%", 1);
 
+    private DefaultAction Diagram2DAction;
+
+    private DefaultAction Interactive2DAction;
+
+    private DefaultAction Interactive3DAction;
+     
     private DefaultAction handAction;
 
     private DefaultAction entityAction;
@@ -148,6 +160,8 @@ public final class ERDesignerComponent implements ResourceHelperProvider {
     private ModelItem selectedObject;
 
     private final JPanel editorPanel;
+
+    private EditorPanel EPJING;
 
     private static ERDesignerComponent DEFAULT;
 
@@ -277,9 +291,18 @@ public final class ERDesignerComponent implements ResourceHelperProvider {
     protected boolean setBackgroundDefault() {
         return true;
     }
-
-    protected boolean setBackgroundGreen() {
-        return false;
+    // EPJING = new EditorPanel() {
+    //             @Override
+    //             public void componentClicked(EditorComponent aComponent, MouseEvent aEvent) {
+    //                 Java2DEditor.this.componentClicked(aComponent, aEvent);
+    //             }
+    
+    protected void setBackgroundGreen() {
+        EPJING = new EditorPanel();
+        // EditorPanel.this.setBackground(Color.green);
+        MessagesHelper.displayErrorMessage(getDetailComponent(), getResourceHelper().getText(ERDesignerBundle.NOSUPPORTEDOPENGLVENDOR), getResourceHelper().getText(ERDesignerBundle.ERRORINITIALIZING3DMODE));
+        // editorPanel.setBackgroundBrowser(Color.green);
+        // return false;
     }
 
     protected boolean setBackgroundRed() {
@@ -398,6 +421,12 @@ public final class ERDesignerComponent implements ResourceHelperProvider {
         DefaultAction theLoadAction = new DefaultAction(
                 new OpenFromFileCommand(), this, ERDesignerBundle.LOADMODEL);
 
+        Diagram2DAction = new DefaultAction(e -> setEditor2DDiagram(), this, ERDesignerBundle.DIAGRAM2D);
+
+        Interactive2DAction = new DefaultAction(e -> setEditor2DInteractive(), this, ERDesignerBundle.INTERACTIVE2D);
+
+        Interactive3DAction = new DefaultAction(e -> setEditor3DInteractive(), this, ERDesignerBundle.INTERACTIVE3D);
+
         handAction = new DefaultAction(
                 e -> {
                     commandSetTool(ToolEnum.HAND);
@@ -446,6 +475,8 @@ public final class ERDesignerComponent implements ResourceHelperProvider {
 
         DefaultAction theRepositoryConnectionAction = new DefaultAction(
                 new RepositoryConnectionCommand(), this,
+
+
                 ERDesignerBundle.REPOSITORYCONNECTION);
 
         DefaultAction theDomainsAction = new DefaultAction(
@@ -581,7 +612,7 @@ public final class ERDesignerComponent implements ResourceHelperProvider {
         theDBMenu.add(new DefaultMenuItem(editCustomTypes));
         theDBMenu.add(new DefaultMenuItem(theDomainsAction));
         theDBMenu.addSeparator();
-
+        
         theDBMenu.add(new DefaultMenuItem(theReverseEngineerAction));
         theDBMenu.addSeparator();
         theDBMenu.add(new DefaultMenuItem(theGenerateSQL));
@@ -647,7 +678,7 @@ public final class ERDesignerComponent implements ResourceHelperProvider {
         DefaultAction theViewBGDefaultAction = new DefaultAction(
                 this, ERDesignerBundle.BGDEFAULT);
         DefaultAction theViewBGGreenAction = new DefaultAction(
-                this, ERDesignerBundle.GREEN);
+                e -> setBackgroundGreen(),this, ERDesignerBundle.GREEN);
         DefaultAction theViewBGRedAction = new DefaultAction(
                 this, ERDesignerBundle.RED);
         DefaultAction theViewBGBlueAction = new DefaultAction(
@@ -812,6 +843,24 @@ public final class ERDesignerComponent implements ResourceHelperProvider {
         theToolBar.addSeparator();
         theToolBar.add(zoomInAction);
         theToolBar.add(zoomOutAction);
+        theToolBar.addSeparator();
+        theToolBar.addSeparator();
+        // theToolBar.add()
+
+        Diagram2DButton = new DefaultToggleButton(Diagram2DAction);
+        Interactive2DButton = new DefaultToggleButton(Interactive2DAction);
+        Interactive3DButton = new DefaultToggleButton(Interactive3DAction);
+
+        ButtonGroup theGroup2 = new ButtonGroup();
+        theGroup2.add(Diagram2DButton);
+        theGroup2.add(Interactive2DButton);
+        theGroup2.add(Interactive3DButton);
+
+        theToolBar.add(Diagram2DButton);
+        theToolBar.add(Interactive2DButton);
+        theToolBar.add(Interactive3DButton);
+
+        theToolBar.addSeparator();
         theToolBar.addSeparator();
 
         handButton = new DefaultToggleButton(handAction);

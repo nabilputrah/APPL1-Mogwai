@@ -117,7 +117,7 @@ public class EditorPanel extends JPanel {
         theHelpHtml.append("</html>");
         helpHTML = theHelpHtml.toString();
 
-        setBackground(Color.black);
+        // setBackground(Color.black);
         resourceHelper = ResourceHelper.getResourceHelper(ERDesignerBundle.BUNDLE_NAME);
         fadingHelper = new FadeInFadeOutHelper() {
             @Override
@@ -321,7 +321,7 @@ public class EditorPanel extends JPanel {
         String theTitle = "(c) " + resourceHelper.getText(ERDesignerBundle.TITLE) + " "
                 + theVersion + " ";
 
-        g.setColor(Color.white);
+        g.setColor(Color.white); //Tulisan atas 2D iterative
         g.setFont(new Font("Helvetica", Font.PLAIN, 12));
         g.drawString(theTitle, 10, 20);
 
@@ -334,7 +334,7 @@ public class EditorPanel extends JPanel {
                 JLabel theHelpLabel = new JLabel(helpHTML);
                 theHelpLabel.setFont(g.getFont());
                 theHelpLabel.setSize(theHelpSize);
-                theHelpLabel.setForeground(Color.white);
+                theHelpLabel.setForeground(Color.white); //tulisan 2D iterative tengah
 
                 helpImage = new BufferedImage((int) theHelpSize.getWidth(), (int) theHelpSize.getHeight(),
                         BufferedImage.TYPE_INT_RGB);

@@ -128,6 +128,15 @@
         <Entry id="VIEWTOOL">
             <Icon>/de/erdesignerng/icons/view.gif</Icon>
         </Entry>
+        <Entry id="DIAGRAM2D">
+            <Icon>/de/erdesignerng/icons/2Ddiargam.png</Icon>
+        </Entry>
+        <Entry id="INTERACTIVE2D">
+            <Icon>/de/erdesignerng/icons/2DInteractive.png</Icon>
+        </Entry>
+        <Entry id="INTERACTIVE3D">
+            <Icon>/de/erdesignerng/icons/3DInteractive.png</Icon>
+        </Entry>
         <Entry id="ZOOM">
             <Text lang="de">Vergrößerung</Text>
             <Text lang="en">Zoom</Text>
